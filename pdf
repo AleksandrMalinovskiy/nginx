@@ -1,0 +1,21 @@
+server {
+       listen 80;
+       server_name app.borsa.cash;
+
+       root    /var/www/app_borsa_cash/;
+
+       location / {
+           root /var/www/app_borsa_cash/;
+           rewrite ^ /Privacy.pdf break;
+           add_header Content-Disposition 'inline';
+       }
+}
+#       location / {
+#                try_files $uri $uri/ /index.php?$args;
+#           }
+#
+#       location ~ \.php$ {
+#                include snippets/fastcgi-php.conf;
+#                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+#        }
+#}
